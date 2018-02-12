@@ -1,6 +1,5 @@
 import React from 'react';
 import { inject } from 'mobx-react';
-import { RouterState } from 'mobx-state-router';
 
 const styles = {
     root: {
@@ -25,7 +24,7 @@ class DepartmentPageBase extends React.Component {
 
     handleClick = () => {
         const { rootStore: { routerStore } } = this.props;
-        routerStore.goTo(new RouterState('home'));
+        routerStore.goTo('home');
     }
 }
 

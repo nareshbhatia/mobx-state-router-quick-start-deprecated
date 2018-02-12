@@ -4,12 +4,12 @@
   "private": true,
   "dependencies": {
     "history": "^4.7.2",
-    "mobx": "^3.4.1",
-    "mobx-react": "^4.3.5",
-    "mobx-state-router": "^1.0.0",
+    "mobx": "^3.5.1",
+    "mobx-react": "^4.4.1",
+    "mobx-state-router": "^2.0.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.1.0"
+    "react-scripts": "1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
