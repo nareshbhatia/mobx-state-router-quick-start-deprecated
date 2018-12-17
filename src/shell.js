@@ -11,16 +11,13 @@ const viewMap = {
     notFound: <NotFoundPage />
 };
 
-class ShellBase extends React.Component {
-    render() {
-        const { rootStore: { routerStore } } = this.props;
+export const Shell = inject('rootStore')(
+    class extends React.Component {
+        render() {
+            const { rootStore } = this.props;
+            const { routerStore } = rootStore;
 
-        return (
-            <div>
-                <RouterView routerStore={routerStore} viewMap={viewMap} />
-            </div>
-        );
+            return <RouterView routerStore={routerStore} viewMap={viewMap} />;
+        }
     }
-}
-
-export const Shell = inject('rootStore')(ShellBase);
+);

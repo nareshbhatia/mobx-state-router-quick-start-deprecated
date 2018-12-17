@@ -7,25 +7,23 @@ const styles = {
     }
 };
 
-class DepartmentPageBase extends React.Component {
-    render() {
-        const { rootStore: { routerStore } } = this.props;
-        const { routerState: { params } } = routerStore;
+export const DepartmentPage = inject('rootStore')(
+    class extends React.Component {
+        render() {
+            const { rootStore } = this.props;
+            const { params } = rootStore.routerStore.routerState;
 
-        return (
-            <div style={styles.root}>
-                <h1>Welcome to {params.id}</h1>
-                <button onClick={this.handleClick}>
-                    Go Home!
-                </button>
-            </div>
-        );
+            return (
+                <div style={styles.root}>
+                    <h1>Welcome to {params.id}</h1>
+                    <button onClick={this.handleClick}>Go Home!</button>
+                </div>
+            );
+        }
+
+        handleClick = () => {
+            const { rootStore } = this.props;
+            rootStore.routerStore.goTo('home');
+        };
     }
-
-    handleClick = () => {
-        const { rootStore: { routerStore } } = this.props;
-        routerStore.goTo('home');
-    }
-}
-
-export const DepartmentPage = inject('rootStore')(DepartmentPageBase);
+);
